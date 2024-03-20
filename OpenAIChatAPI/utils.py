@@ -3,7 +3,7 @@ from datetime import datetime
 from openai.types.beta.threads import Message
 from openai import AssistantEventHandler
 
-from OpenAIChatAPI.constants import ROLE
+from config import ROLE
 
 
 class EventHandler(AssistantEventHandler):

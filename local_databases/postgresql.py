@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker, Session
 import inspect
 from typing import Callable
 
-from OpenAIChatAPI.constants import DB_USER, DB_PASS, DB_HOST, DB_PORT, DB_NAME
+from config import DB_USER, DB_PASS, DB_HOST, DB_PORT, DB_NAME
 
 SQLALCHEMY_DATABASE_URL = f'postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
 
@@ -25,32 +25,3 @@ def get_db():
         yield db
     finally:
         db.close()
-
-
-def connected_to_db(function: Callable):
-    if inspect.isawaitable(function):
-        async def connect(*args, **kwargs):
-            ses = None
-            try:
-                ses: Session = SessionLocal()
-                data = await function(*args, **kwargs, session=ses)
-            finally:
-                if ses:
-                    ses.close()
-
-            return data
-
-        return connect
-    else:
-        def connect(*args, **kwargs):
-            ses = None
-            try:
-                ses = SessionLocal()
-                data = function(*args, **kwargs, session=ses)
-            finally:
-                if ses:
-                    ses.close()
-
-            return data
-
-        return connect
