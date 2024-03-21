@@ -11,8 +11,10 @@ Additionally, I have implemented an Authentication API to enhance security and m
 
 
 
+
 Entity Relationship Diagram (ERD)
         ![image](https://github.com/Geo-Lih/OpenAi_Assitant_Api_Test_Task/assets/72580162/723ab6f7-89c8-41c7-aea6-98b184bccb74)
+
 
 
 
