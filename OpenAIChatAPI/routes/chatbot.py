@@ -17,7 +17,7 @@ router = APIRouter(
 )
 
 
-@router.post('/chatbot_dialogue_engage', response_model=MessageWithThreadModel)
+@router.post('/chatbot_dialogue_engage', response_model=list[MessageWithThreadModel])
 def chatbot_dialogue_engage(input_model: ChatInputModel,
                             user: UserInDB = Depends(get_current_user),
                             session: Session = Depends(postgresql.get_db)):
