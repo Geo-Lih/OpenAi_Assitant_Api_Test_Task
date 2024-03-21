@@ -1,5 +1,12 @@
 Test_task
 
+This repository showcases a test task demonstrating integration with OpenAI's Assistant API. To optimize the workflow, I've designed the logic across three endpoints:
+
+1. Message Response: Receives a user's message and returns the bot's latest response to that message.
+2. Thread Messages Retrieval: Retrieves the complete message thread for a specified thread_id.
+3. User Thread IDs Retrieval: Lists all thread IDs associated with a user.
+Additionally, I have implemented an Authentication API to enhance security and manage user access effectively.
+
 
 
 
